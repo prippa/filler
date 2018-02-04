@@ -20,6 +20,8 @@ CC			=	gcc
 DIR_LIBFT	=	./libft/
 DIR_INC		=	$(DIR_LIBFT)includes/
 DIR_FPF		=	$(DIR_LIBFT)printf/
+DIR_FIL_INC	=	./includes/
+DIR_FIL		=	./source/
 DIR_OBJ		= 	./obj/
 
 HEAD_LIBFT	=	libft.h
@@ -42,7 +44,7 @@ C_LIBFT		=  ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c\
 			ft_strncpy.c ft_strnequ.c ft_strnew.c ft_strnstr.c\
 			ft_strrchr.c ft_strsplit.c ft_strstr.c ft_strsub.c\
 			ft_strtrim.c ft_tolower.c ft_tostrlowercase.c ft_tostruppercase.c\
-			ft_toupper.c ft_itoa_base.c\
+			ft_toupper.c ft_itoa_base.c get_next_line.c\
 			ft_arr_free.c ft_arrlen.c ft_nbrlen.c
 
 C_FPF		= 	ft_pf_strjoin.c ft_charjoin.c\
@@ -61,13 +63,15 @@ OBJ_LIBFT 	= 	$(C_LIBFT:.c=.o)
 OBJ_FPF 	= 	$(C_FPF:.c=.o)
 OBJ_FIL 	= 	$(C_FIL:.c=.o)
 
-OBJ 		= 	$(addprefix $(DIR_OBJ),$(OBJ_LIBFT))
-OBJ 		+= 	$(addprefix $(DIR_OBJ),$(OBJ_FPF))
-OBJ 		+= 	$(addprefix $(DIR_OBJ),$(OBJ_FIL))
+OBJ 		= 	$(addprefix $(DIR_OBJ), $(OBJ_LIBFT))
+OBJ 		+= 	$(addprefix $(DIR_OBJ), $(OBJ_FPF))
+OBJ 		+= 	$(addprefix $(DIR_OBJ), $(OBJ_FIL))
 
-INC 		= 	$(addprefix -I,$(DIR_INC))
-INC_LIBFT 	= 	$(addprefix $(DIR_INC),$(HEAD_LIBFT))
-INC_FPF 	= 	$(addprefix $(DIR_INC),$(HEAD_FPF))
+INC 		= 	$(addprefix -I, $(DIR_INC) $(DIR_FIL_INC))
+
+INC_LIBFT 	= 	$(addprefix $(DIR_INC), $(HEAD_LIBFT))
+INC_FPF 	= 	$(addprefix $(DIR_INC), $(HEAD_FPF))
+INC_FIL 	= 	$(addprefix $(DIR_FIL_INC), $(HEAD_FIL))
 
 
 all: $(NAME)
@@ -90,7 +94,7 @@ $(DIR_OBJ)%.o: $(DIR_FPF)%.c $(INC_FPF)
 	@$(CC) $(FLAGS) $(INC) -c -o $@ $<
 	@echo "Linking" [ $< ]
 
-$(DIR_OBJ)%.o: %.c $(HEAD_FIL)
+$(DIR_OBJ)%.o: $(DIR_FIL)%.c $(INC_FIL)
 	@$(CC) $(FLAGS) $(INC) -c -o $@ $<
 	@echo "Linking" [ $< ]
 
