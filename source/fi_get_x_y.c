@@ -1,31 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filler.h                                           :+:      :+:    :+:   */
+/*   fi_get_x_y.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: prippa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/05 15:51:31 by prippa            #+#    #+#             */
-/*   Updated: 2018/02/05 15:51:35 by prippa           ###   ########.fr       */
+/*   Created: 2018/02/05 16:14:43 by prippa            #+#    #+#             */
+/*   Updated: 2018/02/05 16:14:45 by prippa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLER_H
-# define FILLER_H
 
-# include "ft_printf.h"
-# include "get_next_line.h"
-
-typedef	struct		s_filler
-{
-	char			**board;
-	int				b_x;
-	int				b_y;
-	char			**figur;
-	int				f_x;
-	int				f_y;
-	int				i;
-	int				j;
-}					t_filler;
-
-#endif

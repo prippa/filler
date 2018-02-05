@@ -13,7 +13,7 @@
 NAME		=	prippa.filler
 LIBRARY		=	libft.a
 
-FLAGS		= 	-Wall -Werror -Wextra
+#FLAGS		= 	-Wall -Werror -Wextra
 
 CC			=	gcc
 
