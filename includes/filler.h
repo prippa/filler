@@ -18,6 +18,8 @@
 
 typedef	struct		s_filler
 {
+	char			mine;
+	char			enemy;
 	char			**board;
 	int				b_x;
 	int				b_y;
@@ -27,5 +29,7 @@ typedef	struct		s_filler
 	int				i;
 	int				j;
 }					t_filler;
+
+void				fi_get_y_x(char *str, int *x, int *y);
 
 #endif

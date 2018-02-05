@@ -55,7 +55,7 @@ C_FPF		= 	ft_pf_strjoin.c ft_charjoin.c\
 				ft_output_u_modul.c ft_output_ox_modul.c\
 				ft_output_p_modul.c
 
-C_FIL		=	main.c
+C_FIL		=	main.c fi_get_y_x.c
 
 
 
@@ -82,6 +82,7 @@ $(NAME): obj $(OBJ)
 	@echo "Compiling" [ $(LIBRARY) ]
 	@$(CC) -o $(NAME) $(OBJ) -lm $(LIBRARY)
 	@echo "Compiling" [ $(NAME) ]
+	mv $(NAME) ./players/
 
 obj:
 	@mkdir -p $(DIR_OBJ)

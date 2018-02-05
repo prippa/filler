@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fi_get_x_y.c                                       :+:      :+:    :+:   */
+/*   fi_get_y_x.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: prippa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,4 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "filler.h"
 
+void	fi_get_y_x(char *str, int *y, int *x)
+{
+	int i;
+	int flag;
+
+	flag = 1;
+	i = 0;
+	while (str[i])
+	{
+		if (ft_isdigit(str[i]))
+		{
+			if (flag)
+			{
+				*y = ft_atoi(str + i);
+				i += ft_nbrlen(*y);
+				flag = 0;
+			}
+			else
+			{
+				*x = ft_atoi(str + i);
+				i += ft_nbrlen(*x);
+				break ;
+			}
+		}
+		else
+			i++;
+	}
+}
