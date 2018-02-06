@@ -45,17 +45,20 @@ C_LIBFT		=  ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c\
 			ft_strrchr.c ft_strsplit.c ft_strstr.c ft_strsub.c\
 			ft_strtrim.c ft_tolower.c ft_tostrlowercase.c ft_tostruppercase.c\
 			ft_toupper.c ft_itoa_base.c get_next_line.c\
-			ft_arr_free.c ft_arrlen.c ft_nbrlen.c
+			ft_arr_free.c ft_arrlen.c ft_nbrlen.c\
+			ft_putarr.c ft_putarr_fd.c
 
 C_FPF		= 	ft_pf_strjoin.c ft_charjoin.c\
-				ft_printf.c ft_unicode.c ft_conv_sig_int.c ft_conv_unsig_int.c\
+				ft_printf.c ft_dprintf.c\
+				ft_unicode.c ft_conv_sig_int.c ft_conv_unsig_int.c\
 				ft_get_flags.c ft_get_type.c\
 				ft_get_oux.c ft_get_di.c ft_get_c.c ft_get_s.c\
 				ft_output_c_modul.c ft_output_s_modul.c ft_output_d_modul.c\
 				ft_output_u_modul.c ft_output_ox_modul.c\
 				ft_output_p_modul.c
 
-C_FIL		=	main.c fi_get_y_x.c
+C_FIL		=	main.c fi_algo.c\
+				fi_get_y_x.c fi_get_board.c fi_get_figur.c
 
 
 

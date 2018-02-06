@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_dprintf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: prippa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/06 15:57:55 by prippa            #+#    #+#             */
-/*   Updated: 2017/11/06 15:57:57 by prippa           ###   ########.fr       */
+/*   Created: 2018/02/06 11:38:01 by prippa            #+#    #+#             */
+/*   Updated: 2018/02/06 11:38:04 by prippa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_putnbr_fd(int fd, int n)
+int		ft_dprintf(int fd, const char *format, ...)
 {
-	if (n == -2147483648)
+	t_printf	fpf;
+	int			len;
+
+	fpf.fd = fd;
+	fpf.format = ft_strdup(format);
+	fpf.out_str = NULL;
+	fpf.i = 0;
+	fpf.size = 0;
+	va_start(fpf.args, format);
+	ft_lobi(&fpf);
+	va_end(fpf.args);
+	free(fpf.format);
+	len = 0;
+	if (fpf.out_str)
 	{
-		ft_putchar_fd(fd, '-');
-		ft_putchar_fd(fd, '2');
-		ft_putnbr_fd(fd, 147483648);
-		return ;
+		len = write(fpf.fd, fpf.out_str, ft_strlen(fpf.out_str));
+		free(fpf.out_str);
 	}
-	if (n < 0)
-	{
-		ft_putchar_fd(fd, '-');
-		n = -n;
-	}
-	if (n > 9)
-	{
-		ft_putnbr_fd(fd, n / 10);
-		ft_putnbr_fd(fd, n % 10);
-	}
-	else
-		ft_putchar_fd(fd, n + '0');
+	return (len + fpf.size);
 }

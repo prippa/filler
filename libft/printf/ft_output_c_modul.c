@@ -20,11 +20,11 @@ static void	ft_join(t_printf *fpf)
 	{
 		if (fpf->out_str)
 		{
-			fpf->size += write(1, fpf->out_str, ft_strlen(fpf->out_str));
+			fpf->size += write(fpf->fd, fpf->out_str, ft_strlen(fpf->out_str));
 			free(fpf->out_str);
 			fpf->out_str = NULL;
 		}
-		fpf->size += write(1, &fpf->str[0], 1);
+		fpf->size += write(fpf->fd, &fpf->str[0], 1);
 	}
 }
 

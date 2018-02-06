@@ -16,6 +16,9 @@
 # include "ft_printf.h"
 # include "get_next_line.h"
 
+# define Y 			fil->i
+# define X 			fil->j
+
 typedef	struct		s_filler
 {
 	char			mine;
@@ -28,8 +31,14 @@ typedef	struct		s_filler
 	int				f_y;
 	int				i;
 	int				j;
+	int				point_y;
+	int				point_x;
 }					t_filler;
 
 void				fi_get_y_x(char *str, int *x, int *y);
+int					fi_get_board(t_filler *fil);
+int					fi_get_figur(t_filler *fil);
+int					fi_skip_line();
+void				fi_algo(t_filler *fil);
 
 #endif

@@ -73,10 +73,10 @@ void				ft_putchar(char c);
 void				ft_putstr(char const *s);
 void				ft_putendl(char const *s);
 void				ft_putnbr(int n);
-void				ft_putchar_fd(char c, int fd);
-void				ft_putstr_fd(char const *s, int fd);
-void				ft_putendl_fd(char const *s, int fd);
-void				ft_putnbr_fd(int n, int fd);
+void				ft_putchar_fd(int fd, char c);
+void				ft_putstr_fd(int fd, char const *s);
+void				ft_putendl_fd(int fd, char const *s);
+void				ft_putnbr_fd(int fd, int n);
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
@@ -99,5 +99,7 @@ char				*ft_itoa_base(unsigned long long int num,
 size_t				ft_arrlen(char **arr);
 void				ft_arr_free(char ***arr);
 int					ft_nbrlen(long long int nb);
+void				ft_putarr(char **arr);
+void				ft_putarr_fd(int fd, char **arr);
 
 #endif

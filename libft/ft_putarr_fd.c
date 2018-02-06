@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putarr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: prippa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/06 15:57:55 by prippa            #+#    #+#             */
-/*   Updated: 2017/11/06 15:57:57 by prippa           ###   ########.fr       */
+/*   Created: 2018/02/06 12:30:43 by prippa            #+#    #+#             */
+/*   Updated: 2018/02/06 12:30:44 by prippa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int fd, int n)
+void	ft_putarr_fd(int fd, char **arr)
 {
-	if (n == -2147483648)
+	int i;
+
+	i = 0;
+	while (arr[i])
 	{
-		ft_putchar_fd(fd, '-');
-		ft_putchar_fd(fd, '2');
-		ft_putnbr_fd(fd, 147483648);
-		return ;
+		ft_putendl_fd(fd, arr[i]);
+		i++;
 	}
-	if (n < 0)
-	{
-		ft_putchar_fd(fd, '-');
-		n = -n;
-	}
-	if (n > 9)
-	{
-		ft_putnbr_fd(fd, n / 10);
-		ft_putnbr_fd(fd, n % 10);
-	}
-	else
-		ft_putchar_fd(fd, n + '0');
 }

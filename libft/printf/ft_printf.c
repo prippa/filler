@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-static void		ft_dispatcher(t_printf *fpf)
+void		ft_dispatcher(t_printf *fpf)
 {
 	if (FC == 'c' || FC == 'C')
 		ft_output_c_modul(fpf);
@@ -30,7 +30,7 @@ static void		ft_dispatcher(t_printf *fpf)
 		ft_pf_strjoin(fpf, fpf->str, ft_strlen(fpf->str));
 }
 
-static void		ft_initialization(t_printf *fpf)
+void		ft_initialization(t_printf *fpf)
 {
 	ft_bzero(fpf->flag, FLAG_SIZE);
 	fpf->width = 0;
@@ -42,7 +42,7 @@ static void		ft_initialization(t_printf *fpf)
 	ft_get_type(fpf);
 }
 
-static void		ft_base_output(t_printf *fpf)
+void		ft_base_output(t_printf *fpf)
 {
 	int		len;
 	int		i;
@@ -70,7 +70,7 @@ static void		ft_base_output(t_printf *fpf)
 	fpf->i--;
 }
 
-static void		ft_lobi(t_printf *fpf)
+void		ft_lobi(t_printf *fpf)
 {
 	while (PC)
 	{
@@ -94,11 +94,12 @@ static void		ft_lobi(t_printf *fpf)
 	}
 }
 
-int				ft_printf(const char *format, ...)
+int			ft_printf(const char *format, ...)
 {
 	t_printf	fpf;
 	int			len;
 
+	fpf.fd = 1;
 	fpf.format = ft_strdup(format);
 	fpf.out_str = NULL;
 	fpf.i = 0;
@@ -110,7 +111,7 @@ int				ft_printf(const char *format, ...)
 	len = 0;
 	if (fpf.out_str)
 	{
-		len = write(1, fpf.out_str, ft_strlen(fpf.out_str));
+		len = write(fpf.fd, fpf.out_str, ft_strlen(fpf.out_str));
 		free(fpf.out_str);
 	}
 	return (len + fpf.size);

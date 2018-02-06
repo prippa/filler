@@ -45,6 +45,7 @@
 
 typedef	struct			s_printf
 {
+	int					fd;
 	char				*format;
 	int					i;
 	int					size;
@@ -59,6 +60,12 @@ typedef	struct			s_printf
 }						t_printf;
 
 int						ft_printf(const char *format, ...);
+int						ft_dprintf(int fd, const char *format, ...);
+void					ft_lobi(t_printf *fpf);
+void					ft_base_output(t_printf *fpf);
+void					ft_initialization(t_printf *fpf);
+void					ft_dispatcher(t_printf *fpf);
+
 void					ft_get_flags(t_printf *fpf);
 void					ft_get_type(t_printf *fpf);
 char					*ft_wstr_to_str(wchar_t *ws);
