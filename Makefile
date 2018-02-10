@@ -57,8 +57,9 @@ C_FPF		= 	ft_pf_strjoin.c ft_charjoin.c\
 				ft_output_u_modul.c ft_output_ox_modul.c\
 				ft_output_p_modul.c
 
-C_FIL		=	main.c fi_algo.c\
-				fi_get_y_x.c fi_get_board.c fi_get_figur.c
+C_FIL		=	main.c fi_algorithm.c fi_point_list.c\
+				fi_get_y_x.c fi_get_board.c fi_get_figur.c\
+				fi_get_points.c
 
 
 

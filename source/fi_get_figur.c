@@ -14,7 +14,6 @@
 
 int		fi_get_figur(t_filler *fil)
 {
-	int		i;
 	char	*line;
 
 	if ((get_next_line(0, &line)) < 1)
@@ -24,15 +23,15 @@ int		fi_get_figur(t_filler *fil)
 	if (!(fil->figur = (char **)malloc(sizeof(char *) * fil->f_y + 1)))
 		return (-1);
 	fil->figur[fil->f_y] = NULL;
-	i = 0;
-	while (i < fil->f_y)
+	Y = 0;
+	while (Y < fil->f_y)
 	{
 		if ((get_next_line(0, &line)) < 1)
 			return (-1);
-		if (!(fil->figur[i] = ft_strdup(line)))
+		if (!(fil->figur[Y] = ft_strdup(line)))
 			return (-1);
 		free(line);
-		i++;
+		Y++;
 	}
 	return (1);
 }

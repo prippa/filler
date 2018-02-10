@@ -12,39 +12,48 @@
 
 #include "filler.h"
 
-int			fi_skip_line()
+int			fi_mem_board(t_filler *fil)
 {
-	char *line;
-
-	if ((get_next_line(0, &line)) < 1)
-		return (-1);
-	free(line);
-	return (1);
-}
-
-int		fi_get_board(t_filler *fil)
-{
-	int		i;
 	char	*line;
 
 	if ((get_next_line(0, &line)) < 1)
 		return (-1);
 	fi_get_y_x(line, &fil->b_y, &fil->b_x);
 	free(line);
-	if ((fi_skip_line()) == -1)
+	if ((get_next_line(0, &line)) < 1)
 		return (-1);
-	if (!(fil->board = (char **)malloc(sizeof(char *) * fil->b_y + 1)))
+	free(line);
+	if (!fil->board)
+	{
+		if (!(fil->board = (char **)malloc(sizeof(char *) * fil->b_y + 1)))
+			return (-1);
+		Y = 0;
+		while (Y <= fil->b_y)
+		{
+			fil->board[Y] = NULL;
+			Y++;
+		}
+	}
+	return (1);
+}
+
+int		fi_get_board(t_filler *fil)
+{
+	char	*line;
+
+	if ((fi_mem_board(fil)) == -1)
 		return (-1);
-	fil->board[fil->b_y] = NULL;
-	i = 0;
-	while (i < fil->b_y)
+	Y = 0;
+	while (Y < fil->b_y)
 	{
 		if ((get_next_line(0, &line)) < 1)
 			return (-1);
-		if (!(fil->board[i] = ft_strdup(line + 4)))
+		if (fil->board[Y])
+			free(fil->board[Y]);
+		if (!(fil->board[Y] = ft_strdup(line + 4)))
 			return (-1);
 		free(line);
-		i++;
+		Y++;
 	}
 	return (1);
 }
