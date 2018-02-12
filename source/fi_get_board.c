@@ -37,7 +37,7 @@ int			fi_mem_board(t_filler *fil)
 	return (1);
 }
 
-int		fi_get_board(t_filler *fil)
+int			fi_get_board(t_filler *fil)
 {
 	char	*line;
 

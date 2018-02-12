@@ -45,7 +45,7 @@ int			fi_get_points(t_filler *fil)
 	while (Y < fil->b_y)
 	{
 		X = 0;
-		while(X < fil->b_x)
+		while (X < fil->b_x)
 		{
 			if ((Y + fil->f_y) <= fil->b_y
 				&& (X + fil->f_x) <= fil->b_x

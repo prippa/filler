@@ -13,7 +13,7 @@
 NAME		=	prippa.filler
 LIBRARY		=	libft.a
 
-#FLAGS		= 	-Wall -Werror -Wextra
+FLAGS		= 	-Wall -Werror -Wextra
 
 CC			=	gcc
 
@@ -86,7 +86,6 @@ $(NAME): obj $(OBJ)
 	@echo "Compiling" [ $(LIBRARY) ]
 	@$(CC) -o $(NAME) $(OBJ) -lm $(LIBRARY)
 	@echo "Compiling" [ $(NAME) ]
-	mv $(NAME) ./players/
 
 obj:
 	@mkdir -p $(DIR_OBJ)
@@ -105,7 +104,7 @@ $(DIR_OBJ)%.o: $(DIR_FIL)%.c $(INC_FIL)
 
 clean:
 	@rm -rf $(DIR_OBJ)
-	@echo "Clean [obj files]"
+	@echo "Clean [ obj files ]"
 
 fclean: clean
 	@rm -f $(NAME)
