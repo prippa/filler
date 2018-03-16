@@ -15,6 +15,21 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <fcntl.h>
+
+# define BUFF_SIZE 32
+# define ABS(x) (((x) < 0) ? -(x) : (x))
+# define MAXINT 2147483647
+# define MININT -2147483648
+
+typedef struct		s_gnl
+{
+	void			*rest;
+	void			*start;
+	int				rm;
+	int				fd;
+	struct s_gnl	*next;
+}					t_gnl;
 
 typedef	struct		s_list
 {
@@ -73,10 +88,10 @@ void				ft_putchar(char c);
 void				ft_putstr(char const *s);
 void				ft_putendl(char const *s);
 void				ft_putnbr(int n);
-void				ft_putchar_fd(int fd, char c);
-void				ft_putstr_fd(int fd, char const *s);
-void				ft_putendl_fd(int fd, char const *s);
-void				ft_putnbr_fd(int fd, int n);
+void				ft_putchar_fd(char c, int fd);
+void				ft_putstr_fd(char const *s, int fd);
+void				ft_putendl_fd(char const *s, int fd);
+void				ft_putnbr_fd(int n, int fd);
 
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
@@ -94,12 +109,18 @@ int					ft_isstruppercase(const char *str);
 int					ft_isstrlowercase(const char *str);
 char				*ft_tostrlowercase(const char *str);
 char				*ft_tostruppercase(const char *str);
+int					get_next_line(const int fd, char **line);
 char				*ft_itoa_base(unsigned long long int num,
 					int base, int letter);
+char				**ft_arrnew(int y, int x, char c);
 size_t				ft_arrlen(char **arr);
 void				ft_arr_free(char ***arr);
+void				ft_str_free(char **str);
 int					ft_nbrlen(long long int nb);
 void				ft_putarr(char **arr);
-void				ft_putarr_fd(int fd, char **arr);
+void				ft_putarr_fd(char **arr, int fd);
+int					ft_atoi_base(const char *str, int base);
+long long int		ft_atoi_max(char *str);
+void				ft_clear(void);
 
 #endif

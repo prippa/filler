@@ -16,27 +16,10 @@ static void		ft_flags(t_printf *fpf)
 {
 	while (PC)
 	{
-		if (PC == '-')
-			fpf->flag[F_MINUS] = '-';
-		else if (PC == '+')
-			fpf->flag[F_PLUS] = '+';
-		else if (PC == ' ')
-			fpf->flag[F_SPACE] = ' ';
-		else if (PC == '#')
-			fpf->flag[F_SHARP] = '#';
-		else if (PC == '0')
-			fpf->flag[F_ZERO] = '0';
-		else if (PC == '*')
-		{
-			if ((fpf->width = va_arg(fpf->args, int)) < 0)
-			{
-				fpf->flag[F_MINUS] = '-';
-				fpf->width = fpf->width * -1;
-			}
-		}
+		if (ft_get_flag_type(fpf))
+			fpf->i++;
 		else
 			return ;
-		fpf->i++;
 	}
 }
 

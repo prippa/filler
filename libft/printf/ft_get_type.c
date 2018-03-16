@@ -57,3 +57,40 @@ void		ft_get_type(t_printf *fpf)
 	else
 		ft_get_type_1(fpf);
 }
+
+static int	ft_get_flag_type_bonus(t_printf *fpf)
+{
+	if (PC == '*')
+	{
+		if ((fpf->width = va_arg(fpf->args, int)) < 0)
+		{
+			fpf->flag[F_MINUS] = '-';
+			fpf->width = fpf->width * -1;
+		}
+	}
+	else if (PC == '~')
+	{
+		fpf->color = va_arg(fpf->args, int);
+		fpf->flag[F_COLOR] = '~';
+	}
+	else
+		return (0);
+	return (1);
+}
+
+int			ft_get_flag_type(t_printf *fpf)
+{
+	if (PC == '-')
+		fpf->flag[F_MINUS] = '-';
+	else if (PC == '+')
+		fpf->flag[F_PLUS] = '+';
+	else if (PC == ' ')
+		fpf->flag[F_SPACE] = ' ';
+	else if (PC == '#')
+		fpf->flag[F_SHARP] = '#';
+	else if (PC == '0')
+		fpf->flag[F_ZERO] = '0';
+	else if (!ft_get_flag_type_bonus(fpf))
+		return (0);
+	return (1);
+}

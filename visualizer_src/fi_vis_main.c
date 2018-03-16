@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putarr_fd.c                                     :+:      :+:    :+:   */
+/*   fi_vis_main.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: prippa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/06 12:30:43 by prippa            #+#    #+#             */
-/*   Updated: 2018/02/06 12:30:44 by prippa           ###   ########.fr       */
+/*   Created: 2018/03/15 15:47:59 by prippa            #+#    #+#             */
+/*   Updated: 2018/03/15 15:48:00 by prippa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "filler.h"
 
-void	ft_putarr_fd(int fd, char **arr)
+int		main(void)
 {
-	int i;
+	char	*str;
 
-	i = 0;
-	while (arr[i])
+	while (get_next_line(0, &str) > 0)
 	{
-		ft_putendl_fd(fd, arr[i]);
-		i++;
+		ft_printf("%s\n", str);
+		free(str);
 	}
+	return (0);
 }

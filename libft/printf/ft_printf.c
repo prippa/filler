@@ -14,6 +14,8 @@
 
 void		ft_dispatcher(t_printf *fpf)
 {
+	if (fpf->flag[F_COLOR])
+		ft_fpf_color(fpf);
 	if (FC == 'c' || FC == 'C')
 		ft_output_c_modul(fpf);
 	else if (FC == 's' || FC == 'S')
@@ -28,11 +30,13 @@ void		ft_dispatcher(t_printf *fpf)
 		ft_output_p_modul(fpf);
 	else
 		ft_pf_strjoin(fpf, fpf->str, ft_strlen(fpf->str));
+	if (fpf->flag[F_COLOR])
+		ft_pf_strjoin(fpf, COLOR_RESET, ft_strlen(COLOR_RESET));
 }
 
 void		ft_initialization(t_printf *fpf)
 {
-	ft_bzero(fpf->flag, FLAG_SIZE);
+	ft_bzero(fpf->flag, FPF_FLAG_SIZE);
 	fpf->width = 0;
 	fpf->precision = 0;
 	fpf->size_flag = 0;
