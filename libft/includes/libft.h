@@ -107,8 +107,8 @@ int					ft_isuppercase(int c);
 int					ft_islowercase(int c);
 int					ft_isstruppercase(const char *str);
 int					ft_isstrlowercase(const char *str);
-char				*ft_tostrlowercase(const char *str);
-char				*ft_tostruppercase(const char *str);
+void				ft_str_to_lower(char **str);
+void				ft_str_to_upper(char **str);
 int					get_next_line(const int fd, char **line);
 char				*ft_itoa_base(unsigned long long int num,
 					int base, int letter);

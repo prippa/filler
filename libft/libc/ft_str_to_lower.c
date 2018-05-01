@@ -12,22 +12,15 @@
 
 #include "libft.h"
 
-char	*ft_tostrlowercase(const char *str)
+void	ft_str_to_lower(char **str)
 {
-	size_t	i;
-	char	*s;
+	int i;
 
-	if (str)
+	i = 0;
+	while ((*str)[i])
 	{
-		s = ft_strdup(str);
-		i = 0;
-		while (s[i])
-		{
-			if (ft_isalpha(s[i]) && !(ft_islowercase(s[i])))
-				s[i] = ft_tolower(s[i]);
-			i++;
-		}
-		return (s);
+		if (ft_isuppercase((*str)[i]))
+			(*str)[i] = ft_tolower((*str)[i]);
+		i++;
 	}
-	return (NULL);
 }

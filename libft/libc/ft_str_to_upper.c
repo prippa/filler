@@ -12,22 +12,15 @@
 
 #include "libft.h"
 
-char	*ft_tostruppercase(const char *str)
+void	ft_str_to_upper(char **str)
 {
-	size_t	i;
-	char	*s;
+	int i;
 
-	if (str)
+	i = 0;
+	while ((*str)[i])
 	{
-		s = ft_strdup(str);
-		i = 0;
-		while (s[i])
-		{
-			if (ft_isalpha(s[i]) && !(ft_isuppercase(s[i])))
-				s[i] = ft_toupper(s[i]);
-			i++;
-		}
-		return (s);
+		if (ft_islowercase((*str)[i]))
+			(*str)[i] = ft_toupper((*str)[i]);
+		i++;
 	}
-	return (NULL);
 }

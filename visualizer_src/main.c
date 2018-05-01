@@ -21,7 +21,7 @@ void	fi_vis_init(t_visualizer *vis)
 
 int		fi_vis_error(char *message)
 {
-	ft_printf("%s\n", message);
+	ft_dprintf(2, "%s\n", message);
 	return (-1);
 }
 
@@ -35,12 +35,17 @@ void	fi_vis_free(t_visualizer *vis)
 int		main(void)
 {
 	t_visualizer	vis;
-	int				i;
 
 	fi_vis_init(&vis);
-	if (!(fi_vis_start_entry(&vis)))
-		return (fi_vis_error("ERROR: in start entry"));
-	ft_printf("%s\n%s\n", vis.player_1, vis.player_2);
+	if ((fi_vis_start_entry(&vis)) == -1)
+		return (fi_vis_error("some error in start entry"));
+	ft_printf("%s%s%s%s%s%s\n", PLAYER_1, PLAYER_2, PLAYER_1, PLAYER_1, PLAYER_1, PLAYER_2);
+	ft_printf("%s %s\n", PLAYER_1, PLAYER_2);
+	ft_printf("%s %s\n", PLAYER_1, PLAYER_2);
+	ft_printf("%s %s\n", PLAYER_1, PLAYER_2);
+	ft_printf("%s %s\n", PLAYER_1, PLAYER_2);
+	ft_printf("%s %s\n", PLAYER_1, PLAYER_2);
+	ft_printf("%s %s\n", PLAYER_1, PLAYER_2);
 	// while (get_next_line(0, &str) > 0)
 	// {
 	// 	ft_printf("%s\n", str);

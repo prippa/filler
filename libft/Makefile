@@ -39,7 +39,7 @@ C_LIBC		= 	ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c\
 			ft_strmap.c ft_strmapi.c ft_strncat.c ft_strncmp.c\
 			ft_strncpy.c ft_strnequ.c ft_strnew.c ft_strnstr.c\
 			ft_strrchr.c ft_strsplit.c ft_strstr.c ft_strsub.c\
-			ft_strtrim.c ft_tolower.c ft_tostrlowercase.c ft_tostruppercase.c\
+			ft_strtrim.c ft_tolower.c ft_str_to_lower.c ft_str_to_upper.c\
 			ft_toupper.c ft_itoa_base.c get_next_line.c\
 			ft_arr_free.c ft_str_free.c ft_arrlen.c ft_nbrlen.c ft_atoi_base.c\
 			ft_clear.c ft_arrnew.c ft_putarr.c ft_putarr_fd.c ft_atoi_max.c
