@@ -10,16 +10,47 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "vis.h"
+
+void	fi_vis_init(t_visualizer *vis)
+{
+	vis->buf = NULL;
+	vis->player_1 = NULL;
+	vis->player_2 = NULL;
+}
+
+int		fi_vis_error(char *message)
+{
+	ft_printf("%s\n", message);
+	return (-1);
+}
+
+void	fi_vis_free(t_visualizer *vis)
+{
+	ft_str_free(&vis->buf);
+	ft_str_free(&vis->player_1);
+	ft_str_free(&vis->player_2);
+}
 
 int		main(void)
 {
-	char	*str;
+	t_visualizer	vis;
+	int				i;
 
-	while (get_next_line(0, &str) > 0)
-	{
-		ft_printf("%s\n", str);
-		free(str);
-	}
+	fi_vis_init(&vis);
+	if (!(fi_vis_start_entry(&vis)))
+		return (fi_vis_error("ERROR: in start entry"));
+	ft_printf("%s\n%s\n", vis.player_1, vis.player_2);
+	// while (get_next_line(0, &str) > 0)
+	// {
+	// 	ft_printf("%s\n", str);
+	// 	if (ft_strstr(str, "got"))
+	// 	{
+	// 		usleep(100000);
+	// 		ft_clear();
+	// 	}
+	// 	free(str);
+	// }
+	fi_vis_free(&vis);
 	return (0);
 }

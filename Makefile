@@ -15,7 +15,7 @@ VISU			=	visualizer
 
 #FLAGS		= 	-Wall -Werror -Wextra
 
-CC				=	gcc
+CC				=	gcc -g
 
 DIR_LIB			=	./libft/
 LIBFT			=	$(DIR_LIB)libft.a
@@ -34,7 +34,7 @@ C_FIL			=	main.c fi_algorithm.c fi_point_list.c\
 				fi_get_y_x.c fi_get_board.c fi_get_figur.c\
 				fi_get_points.c
 
-C_VIS			=	fi_vis_main.c
+C_VIS			=	main.c fi_vis_start_entry.c
 
 
 OBJ_FILLER 		= 	$(C_FIL:.c=.o)
@@ -59,7 +59,7 @@ obj:
 $(NAME): $(OBJ_FIL) $(LIBFT)
 	@$(CC) -o $(NAME) $(OBJ_FIL) $(LIBFT)
 	@echo "Compiling" [ $(NAME) ]
-	cp $(NAME) ./players/
+	mv $(NAME) ./players/ #<------------------------------REMOVE
 
 $(DIR_OBJ)%.o: $(DIR_FIL)%.c $(INC_FIL)
 	@$(CC) $(FLAGS) $(INC_LIB) -c -o $@ $<
