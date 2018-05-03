@@ -21,6 +21,8 @@ static void	vis_init(t_visualizer *vis)
 	vis->map_x = 0;
 	vis->i = 0;
 	vis->j = 0;
+	vis->sleep = 25000;
+	vis->flag_d = 0;
 }
 
 static int	vis_error(char *message)
@@ -36,16 +38,42 @@ static void	vis_free(t_visualizer *vis)
 	ft_str_free(&vis->player_2);
 }
 
-int			main(void)
+static int	vis_get_bonus_flags(t_visualizer *vis, char **argv)
+{
+	int i;
+
+	i = 0;
+	while (argv[i])
+	{
+		if (ft_isstrdigit(argv[i]))
+		{
+			vis->sleep = ft_atoi(argv[i]);
+			if (vis->sleep < 1)
+				return (-1);
+		}
+		else if (!ft_strcmp(argv[i], "-d"))
+			vis->flag_d = 1;
+		else
+			return (-1);
+		i++;
+	}
+	return (1);
+}	
+
+int			main(int argc, char **argv)
 {
 	t_visualizer	vis;
 
 	vis_init(&vis);
+	if (argc > 1)
+	{
+		if ((vis_get_bonus_flags(&vis, argv + 1)) == -1)
+			return (vis_error("ERROR: Invalid flags"));
+	}
 	if ((vis_start_entry(&vis)) == -1)
-		return (vis_error("some error in START entry"));
+		return (vis_error("ERROR: in START entry"));
 	if ((vis_game(&vis)) == -1)
-		return (vis_error("some error in GAME entry"));
-	// ft_printf("%s\n%s\ny = %d\nx = %d\n", vis.player_1, vis.player_2, vis.map_y, vis.map_x);
+		return (vis_error("ERROR: in GAME entry"));
 	vis_free(&vis);
 	return (0);
 }

@@ -19,6 +19,8 @@ typedef	struct		s_visualizer
 	int				map_x;
 	int				i;
 	int				j;
+	int				sleep;
+	int				flag_d;
 }					t_visualizer;
 
 int					vis_start_entry(t_visualizer *vis);
@@ -27,5 +29,9 @@ void				fi_get_y_x(char *str, int *y, int *x);
 int					vis_skip_line(int how_many);
 void				vis_print_frame(int count, char c, char *color);
 int					vis_end(t_visualizer *vis);
+int					vis_the_end(t_visualizer *vis);
+int					vis_print_board(t_visualizer *vis);
+int					vis_print_pice(t_visualizer *vis, int flag);
+int					vis_break(t_visualizer *vis);
 
 #endif

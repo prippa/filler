@@ -29,5 +29,5 @@ void	vis_print_frame(int count, char c, char *color)
 		buf[i] = c;
 		i++;
 	}
-	ft_printf("\t%s%s%s\n", color, buf, COLOR_RESET);
+	ft_printf("%s%s%s\n", color, buf, COLOR_RESET);
 }

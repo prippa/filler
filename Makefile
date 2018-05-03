@@ -13,9 +13,9 @@
 NAME			=	prippa.filler
 VISU			=	visualizer
 
-#FLAGS		= 	-Wall -Werror -Wextra
+FLAGS		= 	-Wall -Werror -Wextra
 
-CC				=	gcc -g
+CC				=	gcc
 
 DIR_LIB			=	./libft/
 LIBFT			=	$(DIR_LIB)libft.a
@@ -37,7 +37,9 @@ C_FIL			=	main.c fi_algorithm.c fi_point_list.c\
 				fi_get_points.c
 
 C_VIS			=	main.c vis_start_entry.c\
-				vis_game.c vis_helpers.c vis_end.c
+				vis_game.c vis_helpers.c vis_end.c\
+				vis_print_board.c vis_print_piece.c\
+				vis_break.c
 
 C_SRC			=	fi_get_y_x.c
 
@@ -65,7 +67,7 @@ obj:
 $(NAME): $(OBJ_FIL) $(LIBFT)
 	@$(CC) -o $(NAME) $(OBJ_FIL) $(LIBFT)
 	@echo "Compiling" [ $(NAME) ]
-	mv $(NAME) ./players/ #<------------------------------REMOVE
+	mv $(NAME) ./players/
 
 $(DIR_OBJ)%.o: $(DIR_FIL)%.c $(INC_FIL)
 	@$(CC) $(FLAGS) $(INC_LIB) -c -o $@ $<
