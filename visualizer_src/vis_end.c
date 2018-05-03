@@ -11,8 +11,6 @@ static char	vis_op(int score_1, int score_2)
 
 static int	vis_get_score(t_visualizer *vis)
 {
-	int score;
-
 	if (ft_strchr(vis->buf, 'O'))
 		vis->player_1_score = ft_atoi(ft_strchr(vis->buf, ':') + 1);
 	else

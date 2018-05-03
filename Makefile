@@ -13,7 +13,7 @@
 NAME			=	prippa.filler
 VISU			=	visualizer
 
-FLAGS		= 	-Wall -Werror -Wextra
+FLAGS			= 	-Wall -Werror -Wextra
 
 CC				=	gcc
 
