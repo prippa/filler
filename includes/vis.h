@@ -19,7 +19,10 @@
 
 # define VIS_PLAYER_1 "😇"
 # define VIS_PLAYER_2 "😈"
+# define VIS_PLAYER_1_PIECE "🔵"
+# define VIS_PLAYER_2_PIECE "🔴"
 # define VIS_SPACE "⚫"
+# define VIS_PIECE "🍰"
 # define VIS_OP_CHAR '\0'
 
 # define VIS_FLAGS_SIZE 2
@@ -35,8 +38,11 @@ typedef	struct		s_visualizer
 	char			*buf;
 	int				map_y;
 	int				map_x;
+	int				piece_y;
+	int				piece_x;
 	int				i;
 	int				j;
+	int				tmp;
 	int				sleep;
 	int				bonus_flags[VIS_FLAGS_SIZE];
 }					t_visualizer;
@@ -49,11 +55,12 @@ void				vis_print_frame(int count, char c, char *color);
 int					vis_end(t_visualizer *vis);
 int					vis_the_end(t_visualizer *vis);
 int					vis_print_board(t_visualizer *vis);
-int					vis_print_pice(t_visualizer *vis, int flag);
+int					vis_print_piece(t_visualizer *vis, int flag);
 int					vis_break(t_visualizer *vis);
 int					vis_sound_on(int key, int flag);
 int					vis_sound_off(int flag);
 void				vis_sound_off_signal(int sig);
 int					vis_get_bonus_flags(t_visualizer *vis, char **argv);
+void				vis_print_score(t_visualizer *vis);
 
 #endif

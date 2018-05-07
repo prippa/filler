@@ -17,11 +17,16 @@ static void	vis_init(t_visualizer *vis)
 	vis->buf = NULL;
 	vis->player_1 = NULL;
 	vis->player_2 = NULL;
+	vis->player_1_score = -1;
+	vis->player_2_score = -1;
 	vis->map_y = 0;
 	vis->map_x = 0;
+	vis->piece_y = 0;
+	vis->piece_x = 0;
 	vis->i = 0;
 	vis->j = 0;
 	vis->sleep = 50000;
+	vis->tmp = 0;
 	ft_bzero(vis->bonus_flags, sizeof(int) * VIS_FLAGS_SIZE);
 }
 
@@ -62,5 +67,6 @@ int			main(int argc, char **argv)
 		return (vis_error("ERROR: in GAME entry"));
 	vis_free(&vis);
 	vis_sound_off(vis.bonus_flags[VIS_FLAG_S]);
+	system("leaks visualizer");
 	return (0);
 }

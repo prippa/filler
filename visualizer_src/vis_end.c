@@ -12,15 +12,6 @@
 
 #include "vis.h"
 
-static char	vis_op(int score_1, int score_2)
-{
-	if (score_1 > score_2)
-		return ('>');
-	if (score_1 < score_2)
-		return ('<');
-	return ('=');
-}
-
 static int	vis_get_score(t_visualizer *vis)
 {
 	if (ft_strchr(vis->buf, 'O'))
@@ -38,19 +29,32 @@ static int	vis_get_score(t_visualizer *vis)
 	return (1);
 }
 
-int			vis_the_end(t_visualizer *vis)
+void		vis_print_score(t_visualizer *vis)
 {
 	char c;
 
-	if ((vis_get_score(vis)) == -1)
-		return (-1);
-	c = vis_op(vis->player_1_score, vis->player_2_score);
+	if (vis->player_1_score > vis->player_2_score)
+		c = '>';
+	else if (vis->player_1_score < vis->player_2_score)
+		c = '<';
+	else
+		c = '=';
 	ft_printf("\n\t%s %s%s%s %s(%d)%s %s%c%s %s(%d)%s %s%s%s%s\n\n",
 		VIS_PLAYER_1, BOLD_YELLOW, vis->player_1, COLOR_RESET,
 		BOLD_WHITE, vis->player_1_score, COLOR_RESET,
 		BOLD_GREEN, c, COLOR_RESET,
 		BOLD_WHITE, vis->player_2_score, COLOR_RESET,
 		BOLD_MAGENTA, vis->player_2, COLOR_RESET, VIS_PLAYER_2);
+}
+
+int			vis_the_end(t_visualizer *vis)
+{
+	if (!vis->bonus_flags[VIS_FLAG_D])
+	{
+		if ((vis_get_score(vis)) == -1)
+			return (-1);
+		vis_print_score(vis);
+	}
 	return (0);
 }
 

@@ -16,7 +16,7 @@ int		vis_break(t_visualizer *vis)
 {
 	while (42)
 	{
-		vis_print_pice(vis, 0);
+		vis_print_piece(vis, 0);
 		ft_str_free(&vis->buf);
 		if ((get_next_line(0, &vis->buf)) == -1)
 			return (-1);

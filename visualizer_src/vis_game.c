@@ -21,7 +21,7 @@ static int	vis_game_while_body(t_visualizer *vis)
 		BOLD_MAGENTA, vis->player_2, COLOR_RESET, VIS_PLAYER_2);
 	if ((vis_print_board(vis)) == -1)
 		return (-1);
-	if ((vis_print_pice(vis, 1)) == -1)
+	if ((vis_print_piece(vis, 1)) == -1)
 		return (-1);
 	return (vis_end(vis));
 }
