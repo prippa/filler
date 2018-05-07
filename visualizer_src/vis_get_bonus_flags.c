@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vis_print_piece.c                                  :+:      :+:    :+:   */
+/*   vis_get_bonus_flags.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: prippa <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/07 13:29:47 by prippa            #+#    #+#             */
-/*   Updated: 2018/05/07 13:29:49 by prippa           ###   ########.fr       */
+/*   Created: 2018/05/07 13:29:07 by prippa            #+#    #+#             */
+/*   Updated: 2018/05/07 13:29:08 by prippa           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vis.h"
 
-int			vis_print_pice(t_visualizer *vis, int flag)
+int		vis_get_bonus_flags(t_visualizer *vis, char **argv)
 {
-	vis->i = 0;
-	vis->j = 0;
-	if (flag)
+	int i;
+
+	i = 0;
+	while (argv[i])
 	{
-		ft_str_free(&vis->buf);
-		if ((get_next_line(0, &vis->buf)) == -1)
+		if (ft_isstrdigit(argv[i]))
+		{
+			vis->sleep = ft_atoi(argv[i]);
+			if (vis->sleep < 1)
+				return (-1);
+		}
+		else if (!ft_strcmp(argv[i], "-d"))
+			vis->bonus_flags[VIS_FLAG_D] = 1;
+		else if (!ft_strcmp(argv[i], "-s"))
+			vis->bonus_flags[VIS_FLAG_S] = 1;
+		else
 			return (-1);
+		i++;
 	}
-	fi_get_y_x(vis->buf, &vis->i, &vis->j);
-	vis_skip_line(vis->i);
-	if (vis_skip_line(1) == -1)
-		return (-1);
 	return (1);
 }

@@ -39,7 +39,7 @@ C_FIL			=	main.c fi_algorithm.c fi_point_list.c\
 C_VIS			=	main.c vis_start_entry.c\
 				vis_game.c vis_helpers.c vis_end.c\
 				vis_print_board.c vis_print_piece.c\
-				vis_break.c
+				vis_break.c vis_sounds.c vis_get_bonus_flags.c
 
 C_SRC			=	fi_get_y_x.c
 

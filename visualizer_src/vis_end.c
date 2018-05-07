@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   vis_end.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: prippa <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/07 13:29:31 by prippa            #+#    #+#             */
+/*   Updated: 2018/05/07 13:29:32 by prippa           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "vis.h"
 
 static char	vis_op(int score_1, int score_2)
@@ -34,10 +46,10 @@ int			vis_the_end(t_visualizer *vis)
 		return (-1);
 	c = vis_op(vis->player_1_score, vis->player_2_score);
 	ft_printf("\n\t%s %s%s%s %s(%d)%s %s%c%s %s(%d)%s %s%s%s%s\n\n",
-		VIS_PLAYER_1, BOLD_WHITE, vis->player_1, COLOR_RESET,
-		BOLD_YELLOW, vis->player_1_score, COLOR_RESET,
+		VIS_PLAYER_1, BOLD_YELLOW, vis->player_1, COLOR_RESET,
+		BOLD_WHITE, vis->player_1_score, COLOR_RESET,
 		BOLD_GREEN, c, COLOR_RESET,
-		BOLD_YELLOW, vis->player_2_score, COLOR_RESET,
+		BOLD_WHITE, vis->player_2_score, COLOR_RESET,
 		BOLD_MAGENTA, vis->player_2, COLOR_RESET, VIS_PLAYER_2);
 	return (0);
 }

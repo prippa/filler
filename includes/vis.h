@@ -1,12 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   vis.h                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: prippa <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/07 13:28:17 by prippa            #+#    #+#             */
+/*   Updated: 2018/05/07 13:28:18 by prippa           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef VIS_H
 # define VIS_H
 
 # include "libft.h"
 # include "ft_printf.h"
+# include <signal.h>
 
 # define VIS_PLAYER_1 "😇"
 # define VIS_PLAYER_2 "😈"
 # define VIS_SPACE "⚫"
+# define VIS_OP_CHAR '\0'
+
+# define VIS_FLAGS_SIZE 2
+# define VIS_FLAG_D 0
+# define VIS_FLAG_S 1
 
 typedef	struct		s_visualizer
 {
@@ -20,7 +38,7 @@ typedef	struct		s_visualizer
 	int				i;
 	int				j;
 	int				sleep;
-	int				flag_d;
+	int				bonus_flags[VIS_FLAGS_SIZE];
 }					t_visualizer;
 
 int					vis_start_entry(t_visualizer *vis);
@@ -33,5 +51,9 @@ int					vis_the_end(t_visualizer *vis);
 int					vis_print_board(t_visualizer *vis);
 int					vis_print_pice(t_visualizer *vis, int flag);
 int					vis_break(t_visualizer *vis);
+int					vis_sound_on(int key, int flag);
+int					vis_sound_off(int flag);
+void				vis_sound_off_signal(int sig);
+int					vis_get_bonus_flags(t_visualizer *vis, char **argv);
 
 #endif

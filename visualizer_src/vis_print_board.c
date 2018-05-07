@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   vis_print_board.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: prippa <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/05/07 13:29:59 by prippa            #+#    #+#             */
+/*   Updated: 2018/05/07 13:30:01 by prippa           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "vis.h"
 
 static int	vis_print_board_logic(t_visualizer *vis)
@@ -13,11 +25,11 @@ static int	vis_print_board_logic(t_visualizer *vis)
 		while (vis->buf[vis->i])
 		{
 			if (vis->buf[vis->i] == '.')
-				ft_printf("%s ", VIS_SPACE);
+				ft_printf("%s%c", VIS_SPACE, VIS_OP_CHAR);
 			else if (vis->buf[vis->i] == 'o' || vis->buf[vis->i] == 'O')
-				ft_printf("%s ", VIS_PLAYER_1);
+				ft_printf("%s%c", VIS_PLAYER_1, VIS_OP_CHAR);
 			else if (vis->buf[vis->i] == 'x' || vis->buf[vis->i] == 'X')
-				ft_printf("%s ", VIS_PLAYER_2);
+				ft_printf("%s%c", VIS_PLAYER_2, VIS_OP_CHAR);
 			vis->i++;
 		}
 		ft_printf("%s%c%s\n", BOLD_CYAN, '|', COLOR_RESET);
