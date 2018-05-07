@@ -42,7 +42,6 @@ typedef	struct		s_visualizer
 	int				piece_x;
 	int				i;
 	int				j;
-	int				tmp;
 	int				sleep;
 	int				bonus_flags[VIS_FLAGS_SIZE];
 }					t_visualizer;
