@@ -71,6 +71,22 @@ static void	fi_get_radius(t_filler *fil, t_point *tmp)
 	}
 }
 
+static void	fi_take_point(t_filler *fil, int radius, t_point *tmp)
+{
+	tmp = tmp->next;
+	while (tmp)
+	{
+		if ((fil->mine == 'X' && tmp->radius <= radius)
+		|| (fil->mine == 'O' && tmp->radius < radius))
+		{
+			radius = tmp->radius;
+			fil->point_y = tmp->point_y;
+			fil->point_x = tmp->point_x;
+		}
+		tmp = tmp->next;
+	}
+}
+
 void		fi_algorithm(t_filler *fil)
 {
 	t_point	*tmp;
@@ -86,15 +102,5 @@ void		fi_algorithm(t_filler *fil)
 	radius = tmp->radius;
 	fil->point_y = tmp->point_y;
 	fil->point_x = tmp->point_x;
-	tmp = tmp->next;
-	while (tmp)
-	{
-		if (tmp->radius <= radius)
-		{
-			radius = tmp->radius;
-			fil->point_y = tmp->point_y;
-			fil->point_x = tmp->point_x;
-		}
-		tmp = tmp->next;
-	}
+	fi_take_point(fil, radius, tmp);
 }
