@@ -23,7 +23,7 @@
 # define VIS_PLAYER_2_PIECE "🔴"
 # define VIS_SPACE "⚫"
 # define VIS_PIECE "🍰"
-# define VIS_OP_CHAR '\0'
+# define VIS_OP_CHAR ' '
 
 # define VIS_FLAGS_SIZE 2
 # define VIS_FLAG_D 0

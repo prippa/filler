@@ -30,6 +30,8 @@ typedef	struct		s_point
 	int				y_down;
 	int				x_left;
 	int				x_right;
+	int				y;
+	int				x;
 	struct s_point	*next;
 }					t_point;
 
@@ -56,6 +58,7 @@ int					fi_get_board(t_filler *fil);
 int					fi_get_figur(t_filler *fil);
 int					fi_get_points(t_filler *fil);
 
+int					fi_get_radius(t_filler *fil, t_point *tmp);
 void				fi_algorithm(t_filler *fil);
 
 void				fi_point_free(t_filler *fil);

@@ -34,7 +34,7 @@ HEAD_VIS		=	vis.h
 
 C_FIL			=	main.c fi_algorithm.c fi_point_list.c\
 				fi_get_board.c fi_get_figur.c\
-				fi_get_points.c
+				fi_get_points.c fi_get_radius.c
 
 C_VIS			=	main.c vis_start_entry.c\
 				vis_game.c vis_helpers.c vis_end.c\

@@ -22,6 +22,7 @@ int		fi_point_add(t_filler *fil)
 	tmp->point_x = X;
 	tmp->touched_y = fil->point_y;
 	tmp->touched_x = fil->point_x;
+	tmp->radius = 0;
 	tmp->next = fil->point;
 	fil->point = tmp;
 	return (1);
