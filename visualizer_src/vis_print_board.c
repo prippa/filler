@@ -71,7 +71,7 @@ int			vis_print_board(t_visualizer *vis)
 	if (!vis->bonus_flags[VIS_FLAG_D])
 	{
 		if (vis_skip_line(1) == -1)
-		return (-1);
+			return (-1);
 	}
 	if (vis->bonus_flags[VIS_FLAG_D])
 		ft_printf("%s<Board: y = %d, x = %d%s\n",

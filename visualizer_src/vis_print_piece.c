@@ -77,8 +77,8 @@ static int	vis_print_piece_main(t_visualizer *vis)
 		return (-1);
 	vis_print_frame(vis->piece_x * 2, '-', BOLD_CYAN);
 	ft_str_free(&vis->buf);
-		if ((get_next_line(0, &vis->buf)) == -1)
-			return (-1);
+	if ((get_next_line(0, &vis->buf)) == -1)
+		return (-1);
 	vis_print_got(vis);
 	vis_print_score(vis);
 	return (1);
