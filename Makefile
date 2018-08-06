@@ -23,7 +23,7 @@ DIR_INC			=	$(DIR_LIB)includes/
 DIR_FIL_INC		=	./includes/
 DIR_FIL			=	./filler_src/
 DIR_VIS			=	./visualizer_src/
-DIR_SRC			=	./source/
+DIR_SRC			=	./shared_src/
 DIR_OBJ			= 	./obj/
 DIR_VIS_OBJ		= 	./vis_obj/
 
