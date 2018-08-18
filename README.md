@@ -22,7 +22,7 @@ Put a new piece than the closer to the enemy to block his moves.
 ## Visualizer programme
 
 ### flags
- * **\[Plus number\]** : Delay next turn in nanoseconds.
+ * **\[Plus number\]** : Delay next turn in microseconds.
  * **-d**          : Debug mode.
  * **-s**          : Epic Mortal Kombat Theme Music.
  * **-help**       : prints usage.
