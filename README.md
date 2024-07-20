@@ -12,7 +12,7 @@
 * The new placed piece should not get out of the game board.
 
 ### Example of some possible pieces
-![](https://thumbs.gfycat.com/LegalDownrightBighornedsheep-size_restricted.gif)
+![](https://github.com/prippa/my-projects-media/blob/main/filler/LegalDownrightBighornedsheep-size_restricted.gif)
 
 ## Algorithm
 In my filler bot i implement of **manhattan distance formula** to find the nearest point to the enemy.
@@ -29,8 +29,8 @@ Put a new piece than the closer to the enemy to block his moves.
  ***
  
  ### Base mode.
-![](https://thumbs.gfycat.com/FamousDizzyGoosefish-size_restricted.gif)
+![](https://github.com/prippa/my-projects-media/blob/main/filler/FamousDizzyGoosefish-size_restricted.gif)
 ***
 ### Debug mode. The mode where you can see next move by pressing Enter.
-![](https://thumbs.gfycat.com/PrestigiousWavyAmericanwirehair-size_restricted.gif)
+![](https://github.com/prippa/my-projects-media/blob/main/filler/PrestigiousWavyAmericanwirehair-size_restricted.gif)
 [more info](https://github.com/prippa/filler/blob/master/filler.en.pdf)
