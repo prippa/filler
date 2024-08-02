@@ -12,7 +12,7 @@
 * The new placed piece should not get out of the game board.
 
 ### Example of some possible pieces
-![](https://github.com/prippa/my-projects-media/blob/main/filler/LegalDownrightBighornedsheep-size_restricted.gif)
+![](https://github.com/prippa/my-projects-media/blob/main/filler/LegalDownrightBighornedsheep-size_restricted.png)
 
 ## Algorithm
 In my filler bot i implement of **manhattan distance formula** to find the nearest point to the enemy.
