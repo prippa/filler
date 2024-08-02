@@ -1,6 +1,6 @@
 # filler
 ## Project from Algorithms branch in school 42
-### filler is the project where you need to create AI wich will play versus enother AI or human.
+### filler is the project where you need to create AI which will play versus another AI or human.
 
 ## Game rules
 * 2 players in turn put randomly assigned pieces on the game board.
